@@ -1,0 +1,121 @@
+[gd_scene load_steps=17 format=3 uid="uid://cqicouqfxom5a"]
+
+[ext_resource type="Script" uid="uid://dpidoh66igtab" path="res://Scripts/house.gd" id="1_iqtyj"]
+[ext_resource type="Texture2D" uid="uid://cgkmyeyq7gsqn" path="res://Assets/Tower.png" id="1_okrnj"]
+[ext_resource type="Texture2D" uid="uid://cvvht70x7cb4t" path="res://Assets/Tower_Destroyed.png" id="2_3jr7h"]
+[ext_resource type="Texture2D" uid="uid://dwos360y55afl" path="res://Assets/Explosions.png" id="3_iqtyj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okrnj"]
+size = Vector2(48, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tj63m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_okrnj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3jr7h")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jr7h"]
+atlas = ExtResource("3_iqtyj")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqtyj"]
+atlas = ExtResource("3_iqtyj")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi0mm"]
+atlas = ExtResource("3_iqtyj")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu6dc"]
+atlas = ExtResource("3_iqtyj")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3jqw"]
+atlas = ExtResource("3_iqtyj")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gau5j"]
+atlas = ExtResource("3_iqtyj")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ug6d"]
+atlas = ExtResource("3_iqtyj")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmwq5"]
+atlas = ExtResource("3_iqtyj")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4svt"]
+atlas = ExtResource("3_iqtyj")
+region = Rect2(1536, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ttg8n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jr7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqtyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi0mm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu6dc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3jqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gau5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ug6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmwq5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4svt")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="house" type="AnimatableBody2D"]
+collision_mask = 2
+script = ExtResource("1_iqtyj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -35)
+shape = SubResource("RectangleShape2D_okrnj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -40)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_tj63m")
+
+[node name="explode" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_ttg8n")
+frame = 8
+frame_progress = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="animation_finished" from="explode" to="." method="_on_explode_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
