@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=648
 
+[dotnet]
+
+project/assembly_name="minesweeper"
+
 [input]
 
 left={
