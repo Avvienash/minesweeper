@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="minesweeper"
-run/main_scene="uid://bn4t6b4cow280"
+run/main_scene="uid://d0e8kcxfeo0m"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameSettings="*res://Scripts/GameSettings.gd"
 
 [display]
 
