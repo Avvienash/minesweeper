@@ -520,39 +520,39 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h4iuc"]
 radius = 16.0
-height = 64.0
+height = 48.0
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_x3wgy"]
-a = Vector2(-112, 16)
+a = Vector2(-72, 16)
 b = Vector2(-24, 16)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_3smsa"]
 a = Vector2(24, 16)
-b = Vector2(112, 8)
+b = Vector2(72, 16)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8erm5"]
-a = Vector2(0, -40)
-b = Vector2(0, -96)
+a = Vector2(0, -24)
+b = Vector2(0, -64)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_f1ek2"]
 a = Vector2(0, 40)
-b = Vector2(0, 120)
+b = Vector2(0, 88)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ukyrk"]
 a = Vector2(8, 40)
-b = Vector2(72, 96)
+b = Vector2(56, 80)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_7dp3o"]
 a = Vector2(-8, 40)
-b = Vector2(-72, 96)
+b = Vector2(-56, 80)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_h4iuc"]
 a = Vector2(24, 0)
-b = Vector2(80, -56)
+b = Vector2(56, -32)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_fd4e3"]
 a = Vector2(-24, 0)
-b = Vector2(-80, -56)
+b = Vector2(-56, -32)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cvnsp")
@@ -563,6 +563,7 @@ animation = &"defend_down_right"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_h4iuc")
 
 [node name="left" type="Area2D" parent="."]

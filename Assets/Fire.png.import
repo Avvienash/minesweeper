@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hk63fjm21cyq"
-path="res://.godot/imported/5_no_bg_resized.png-6d32fd5e5efbc55fd955c114c6d7e469.ctex"
+uid="uid://bkr1gosy24v7u"
+path="res://.godot/imported/Fire.png-3eee30a486a5b3dfbb78abad0137b80d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Number_60x60/5_no_bg_resized.png"
-dest_files=["res://.godot/imported/5_no_bg_resized.png-6d32fd5e5efbc55fd955c114c6d7e469.ctex"]
+source_file="res://Assets/Fire.png"
+dest_files=["res://.godot/imported/Fire.png-3eee30a486a5b3dfbb78abad0137b80d.ctex"]
 
 [params]
 

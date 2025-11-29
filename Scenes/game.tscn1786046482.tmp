@@ -14,8 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://txac5ss0tldu" path="res://Scenes/rock_4.tscn" id="7_ldgsr"]
 [ext_resource type="Texture2D" uid="uid://bk2url8r3hx0b" path="res://Assets/resized_numbers/6_no_bg_resized.png" id="8_7t8sx"]
 [ext_resource type="PackedScene" uid="uid://bf8ponighrtmt" path="res://Scenes/player.tscn" id="8_v158k"]
-[ext_resource type="PackedScene" uid="uid://ds7p6k5e26455" path="res://Scenes/house.tscn" id="9_85qyi"]
-[ext_resource type="PackedScene" uid="uid://cqicouqfxom5a" path="res://Scenes/mine.tscn" id="9_h4fw4"]
+[ext_resource type="PackedScene" uid="uid://ds7p6k5e26455" path="res://Scenes/houseSafe.tscn" id="9_85qyi"]
+[ext_resource type="PackedScene" uid="uid://cqicouqfxom5a" path="res://Scenes/house.tscn" id="9_h4fw4"]
 [ext_resource type="Texture2D" uid="uid://bhkh424ajd5mt" path="res://Assets/resized_numbers/7_no_bg_resized.png" id="9_mg4q0"]
 [ext_resource type="Texture2D" uid="uid://dm3gvfxp2u8np" path="res://Assets/resized_numbers/8_no_bg_resized.png" id="10_vm72l"]
 
@@ -148,8 +148,6 @@ sources/8 = SubResource("TileSetAtlasSource_ese38")
 
 [node name="TileMap" type="Node" parent="."]
 script = ExtResource("1_ldgsr")
-mine_scene = ExtResource("9_h4fw4")
-house_scene = ExtResource("9_85qyi")
 
 [node name="foam" type="TileMapLayer" parent="TileMap"]
 tile_map_data = PackedByteArray(0, 0, 29, 0, 29, 0, 0, 0, 0, 0, 0, 0, 1, 0)
