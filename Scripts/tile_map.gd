@@ -40,7 +40,7 @@ const FOAM_ROCK_DISTANCE = 3 # Max distance from edge to place foam rocks
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	loadGame("Hard")
+	loadGame("Easy")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -294,7 +294,7 @@ func gameOver():
 	sorted_mines.sort_custom(func(a, b):
 		var dist_a = player_cell.distance_to(a)
 		var dist_b = player_cell.distance_to(b)
-		return dist_a - dist_b
+		return dist_b - dist_a
 	)
 	
 	# Reveal the first Mine and start the timer

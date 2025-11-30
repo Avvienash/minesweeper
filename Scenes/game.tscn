@@ -169,6 +169,7 @@ tile_set = SubResource("TileSet_h4fw4")
 wait_time = 0.05
 
 [node name="wait_timer" type="Timer" parent="TileMap"]
+wait_time = 2.0
 
 [node name="Player" parent="." instance=ExtResource("8_v158k")]
 z_index = 5
