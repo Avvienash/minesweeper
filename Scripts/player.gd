@@ -118,6 +118,7 @@ func _physics_process(delta):
 	# left:
 	if ( isleftTower != null ) and (animated_sprite_2d.animation == "attack_right"	) and (animated_sprite_2d.flip_h == true):
 		var pos =  Vector2i(int(position.x / 64) - 1, int(position.y / 64))
+		print("detected")
 		tile_map.cellSelected(pos.x,pos.y)
 
 	# right:

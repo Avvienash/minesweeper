@@ -12,7 +12,7 @@ func _ready() -> void:
 
 
 func _destroy():
-	print("destroy")
+	#print("destroy")
 	if destroyed == false:
 		destroyed = true
 		animated_sprite_2d.play()

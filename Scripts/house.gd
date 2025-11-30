@@ -6,7 +6,7 @@ extends AnimatableBody2D
 var destroyed = false
 
 func _destroy():
-	print("Destroy)")
+	#print("Destroy)")
 	if destroyed == false:
 		animated_sprite_2d.play()
 		collision_shape_2d.disabled = true

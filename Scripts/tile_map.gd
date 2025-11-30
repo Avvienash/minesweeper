@@ -7,6 +7,7 @@ extends Node
 @onready var camera_2d: Camera2D = $"../Player/Camera2D"
 @onready var mine_timer: Timer = $mine_timer
 @onready var wait_timer: Timer = $wait_timer
+@onready var menu: CanvasLayer = $"../Menu"
 
 @export var mine_scene: PackedScene
 @export var house_scene: PackedScene
@@ -23,7 +24,7 @@ var cols = 10
 var mines = 10
 var game_lost = false
 var game_won = false
-var mines_destroyed = 0
+var mines_destroyed = -1
 var sorted_mines = []
 var zoom_out = 1.05
 
@@ -37,10 +38,10 @@ var tile_size = 64
 const FOAM_ROCK_COUNT = 15
 const FOAM_ROCK_DISTANCE = 3 # Max distance from edge to place foam rocks
 
+var return_to_menu = false
+
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	loadGame("Easy")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -59,7 +60,10 @@ func _process(delta: float) -> void:
 			camera_2d.position += direction * distance * delta * 0.4
 		# zoom out camera
 		if camera_2d.zoom.x > zoom_out:
-			camera_2d.zoom -= Vector2(1,1) * delta * 0.2
+			camera_2d.zoom -= Vector2(1,1) * delta * 0.4
+			
+		if (camera_2d.zoom.x <= zoom_out+0.01) and  (distance <= 11) and return_to_menu == true :
+			menu.visible = true
 
 
 
@@ -68,6 +72,32 @@ func _process(delta: float) -> void:
 
 
 func loadGame(difficulty: String):
+	
+	#get_tree().reload_current_scene()
+
+	# Clear previous map scenes
+	if mines_scene_array.size() > 0:
+		for x in mines_scene_array.size():
+			if mines_scene_array[x].size() > 0:
+				for y in mines_scene_array[x].size():
+					if mines_scene_array[x][y] != null:
+						mines_scene_array[x][y].queue_free()
+						mines_scene_array[x][y] = null
+
+	# Clear the numbers layer
+	numbers.clear()
+	ground.clear()
+	foam.clear()
+	
+
+
+	# Reset the entire tree
+	mines_array = []
+	mines_scene_array = []
+	mines_uncovered_array = []
+	sorted_mines = []
+
+	
 
 	var level = difficulty_levels[difficulty]
 	rows = level["rows"]
@@ -76,7 +106,8 @@ func loadGame(difficulty: String):
 
 	game_lost = false
 	game_won = false
-	mines_destroyed = 0
+	mines_destroyed = -1
+	return_to_menu = false
 	camera_2d.position = Vector2(0,0)
 	camera_2d.zoom = Vector2(1.7,1.7)
 	zoom_out = level["zoom"]
@@ -218,9 +249,7 @@ func setupMines():
 				mines_array[x + 1][y + 1] += 1
 			placed_mines += 1
 
-	# Debug print
-	for row in mines_array:
-		print(row)
+
 
 func resetMinesArray():
 	mines_array = []
@@ -251,12 +280,13 @@ func cellSelected(x,y) -> void:
 		
 		# Handle game over logic here
 		if mines_scene_array[x][y] != null:
-				mines_scene_array[x][y]._destroy()
+			print("Hit mine at (", x, ",", y, ")")
+			mines_scene_array[x][y]._destroy()
 
 		gameOver()
 	
 	else:
-		print("Safe cell at (", x, ",", y, ") with value: ", mines_array[x][y])
+		#print("Safe cell at (", x, ",", y, ") with value: ", mines_array[x][y])
 		# Handle safe cell logic here
 		if mines_scene_array[x][y] != null:
 			mines_scene_array[x][y]._destroy()
@@ -275,6 +305,7 @@ func cellSelected(x,y) -> void:
 func gameWon():
 	print("Congratulations! You've cleared all safe cells!")
 	game_won = true
+	wait_timer.start()
 
 func gameOver():
 	print("Game Over! You hit a mine.")
@@ -301,15 +332,13 @@ func gameOver():
 	wait_timer.start()
 	
 func destroyMine():
-	
+	mines_destroyed += 1
 	if mines_destroyed >= mines:
 		return
 	if mines_scene_array[sorted_mines[mines_destroyed].x][sorted_mines[mines_destroyed].y] == null:
-		mines_destroyed += 1
 		return
 	mines_scene_array[sorted_mines[mines_destroyed].x][sorted_mines[mines_destroyed].y]._destroy()
 	mine_timer.start()
-	mines_destroyed += 1
 	
 
 
@@ -343,12 +372,18 @@ func revealAdjacentCells(x, y) -> void:
 	
 
 
-func _on_mine_timer_timeout() -> void:
-	while mines_destroyed < mines:
+func _on_mine_timer_timeout():
+	if mines_destroyed < mines:
 		destroyMine()
-		return
+		print("Destroying mine number: ", mines_destroyed)
+		if mines_destroyed >= mines:
+			return_to_menu = true
+			print("All mines destroyed, returning to menu. Mine numer: ", mines_destroyed)
 		
 func _on_wait_timer_timeout() -> void:
 	if game_lost:
 		destroyMine()
+	elif game_won:
+		return_to_menu = true
+
 		

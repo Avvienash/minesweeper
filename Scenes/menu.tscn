@@ -107,15 +107,6 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_q3rjx")
 text = "Hard"
 icon_alignment = 1
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("4_wwsa2")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_wbdvm")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_q3rjx")
-text = "Quit Game"
-icon_alignment = 1
-
 [connection signal="pressed" from="VBoxContainer/EasyButton" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="VBoxContainer/MediumButton" to="." method="_on_medium_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HardButton" to="." method="_on_hard_button_pressed"]
