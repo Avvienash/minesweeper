@@ -1,5 +1,6 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var tile_map: Node = $"../TileMap"
 
 const speed = 100
 
@@ -7,6 +8,7 @@ const speed = 100
 var direction = "null"
 var attacking = false
 var running = false
+var pause = false
 
 # Attackable Towers
 var isleftTower = null
@@ -22,9 +24,15 @@ var isuprightTower = null
 func _ready() -> void:
 	pass # Replace with function body.
 
+func pause_game():
+	pause = true
 
+func resume_game():
+	pause = false
 
 func _physics_process(delta):
+	if pause:
+		return
 
 	# Movement Input
 	velocity = Vector2.ZERO # The player's movement vector.
@@ -109,28 +117,37 @@ func _physics_process(delta):
 	# Damage Towers
 	# left:
 	if ( isleftTower != null ) and (animated_sprite_2d.animation == "attack_right"	) and (animated_sprite_2d.flip_h == true):
-		isleftTower._destroy()
+		var pos =  Vector2i(int(position.x / 64) - 1, int(position.y / 64))
+		tile_map.cellSelected(pos.x,pos.y)
+
 	# right:
 	if ( isrightTower != null ) and (animated_sprite_2d.animation == "attack_right"	) and (animated_sprite_2d.flip_h == false):
-		isrightTower._destroy()
+		var pos =  Vector2i(int(position.x / 64) + 1, int(position.y / 64))
+		tile_map.cellSelected(pos.x,pos.y)
 	# up:
 	if ( isupTower != null ) and (animated_sprite_2d.animation == "attack_up"	):
-		isupTower._destroy()
+		var pos =  Vector2i(int(position.x / 64), int(position.y / 64) - 1)
+		tile_map.cellSelected(pos.x,pos.y)
 	# down:
 	if ( isdownTower != null ) and (animated_sprite_2d.animation == "attack_down"):
-		isdownTower._destroy()
+		var pos =  Vector2i(int(position.x / 64), int(position.y / 64) + 1)
+		tile_map.cellSelected(pos.x,pos.y)
 	# upleft:
 	if ( isupleftTower != null ) and (animated_sprite_2d.animation == "attack_up_right") and (animated_sprite_2d.flip_h == true):
-		isupleftTower._destroy()
+		var pos =  Vector2i(int(position.x / 64) - 1, int(position.y / 64) - 1)
+		tile_map.cellSelected(pos.x,pos.y)
 	# upright:
 	if ( isuprightTower != null ) and (animated_sprite_2d.animation == "attack_up_right") and (animated_sprite_2d.flip_h == false):
-		isuprightTower._destroy()
+		var pos =  Vector2i(int(position.x / 64) + 1, int(position.y / 64) - 1)
+		tile_map.cellSelected(pos.x,pos.y)
 	# downleft:
 	if ( isdownleftTower != null ) and (animated_sprite_2d.animation == "attack_down_right") and (animated_sprite_2d.flip_h == true):
-		isdownleftTower._destroy()
+		var pos =  Vector2i(int(position.x / 64) - 1, int(position.y / 64) + 1)
+		tile_map.cellSelected(pos.x,pos.y)
 	# downright:
 	if ( isdownrightTower != null ) and (animated_sprite_2d.animation == "attack_down_right") and (animated_sprite_2d.flip_h == false):
-		isdownrightTower._destroy()
+		var pos =  Vector2i(int(position.x / 64) + 1, int(position.y / 64) + 1)
+		tile_map.cellSelected(pos.x,pos.y)
 	
 	# Move the player
 	move_and_slide()

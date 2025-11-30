@@ -166,15 +166,12 @@ tile_set = SubResource("TileSet_ldgsr")
 tile_set = SubResource("TileSet_h4fw4")
 
 [node name="mine_timer" type="Timer" parent="TileMap"]
-wait_time = 0.05
-
-[node name="wait_timer" type="Timer" parent="TileMap"]
-wait_time = 2.0
 
 [node name="Player" parent="." instance=ExtResource("8_v158k")]
 z_index = 5
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -1)
 zoom = Vector2(1.695, 1.695)
 limit_enabled = false
 limit_left = -600
@@ -184,4 +181,3 @@ limit_bottom = 550
 position_smoothing_enabled = true
 
 [connection signal="timeout" from="TileMap/mine_timer" to="TileMap" method="_on_mine_timer_timeout"]
-[connection signal="timeout" from="TileMap/wait_timer" to="TileMap" method="_on_wait_timer_timeout"]
