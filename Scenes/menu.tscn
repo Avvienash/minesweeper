@@ -1,9 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://6utot8t7qpy1"]
+[gd_scene load_steps=8 format=3 uid="uid://d0e8kcxfeo0m"]
 
-[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_3e7rh"]
+[ext_resource type="Script" uid="uid://d0eqir4rrkibf" path="res://Scripts/menu.gd" id="1_3e7rh"]
 [ext_resource type="Texture2D" uid="uid://qlxijx2r36xu" path="res://Assets/bG.png" id="2_b7xls"]
+[ext_resource type="Texture2D" uid="uid://cmvj7m8nedi52" path="res://Assets/UI/Ribbons/Ribbon_Red_3Slides.png" id="3_cayip"]
+[ext_resource type="FontFile" uid="uid://c8k8jm5ojmecl" path="res://Assets/PixelFont/Super Crawler.ttf" id="4_wwsa2"]
+[ext_resource type="Texture2D" uid="uid://k517j3b8iwyl" path="res://Assets/UI/Buttons/Button_Red_3Slides.png" id="5_jsrd8"]
 
-[sub_resource type="SystemFont" id="SystemFont_158mb"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wbdvm"]
+texture = ExtResource("5_jsrd8")
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q3rjx"]
 
 [node name="Menu" type="CanvasLayer"]
 layer = 0
@@ -24,18 +31,43 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -204.5
-offset_bottom = 204.5
+offset_left = -1.0
+offset_top = -235.0
+offset_right = -1.0
+offset_bottom = 174.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.0180506, 1.0428954)
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Title" type="Label" parent="VBoxContainer"]
+[node name="titleBanner" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(650, 150)
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("3_cayip")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/titleBanner"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -178.5
+offset_right = 178.5
+offset_bottom = 100.0
+grow_horizontal = 2
+scale = Vector2(1.0486501, 1.0811906)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.3372549, 0.24705882, 1)
+theme_override_fonts/font = ExtResource("4_wwsa2")
+theme_override_font_sizes/font_size = 51
 text = "MINESWEEPER"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Spacer" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
@@ -44,30 +76,46 @@ layout_mode = 2
 [node name="EasyButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_158mb")
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_wwsa2")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_wbdvm")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_q3rjx")
 text = "Easy"
 icon_alignment = 1
 
 [node name="MediumButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_wwsa2")
 theme_override_font_sizes/font_size = 32
-text = "Medium"
+theme_override_styles/normal = SubResource("StyleBoxTexture_wbdvm")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_q3rjx")
+text = "Medium
+"
+icon_alignment = 1
 
 [node name="HardButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_wwsa2")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_wbdvm")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_q3rjx")
 text = "Hard"
+icon_alignment = 1
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_wwsa2")
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_wbdvm")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_q3rjx")
 text = "Quit Game"
+icon_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/EasyButton" to="." method="_on_easy_pressed"]
-[connection signal="pressed" from="VBoxContainer/MediumButton" to="." method="_on_medium_pressed"]
-[connection signal="pressed" from="VBoxContainer/HardButton" to="." method="_on_hard_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]

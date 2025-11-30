@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cqicouqfxom5a"]
+[gd_scene load_steps=17 format=3 uid="uid://dmurk3118uaqc"]
 
 [ext_resource type="Script" uid="uid://ckssm6wdcs56p" path="res://Scripts/mine.gd" id="1_o84ae"]
 [ext_resource type="Texture2D" uid="uid://cvvht70x7cb4t" path="res://Assets/Tower_Destroyed.png" id="2_3jr7h"]
