@@ -523,36 +523,36 @@ radius = 16.0
 height = 48.0
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_x3wgy"]
-a = Vector2(-72, 16)
+a = Vector2(-56, 16)
 b = Vector2(-24, 16)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_3smsa"]
 a = Vector2(24, 16)
-b = Vector2(72, 16)
+b = Vector2(56, 16)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8erm5"]
 a = Vector2(0, -24)
-b = Vector2(0, -64)
+b = Vector2(0, -56)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_f1ek2"]
 a = Vector2(0, 40)
-b = Vector2(0, 88)
+b = Vector2(0, 72)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ukyrk"]
 a = Vector2(8, 40)
-b = Vector2(56, 80)
+b = Vector2(48, 72)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_7dp3o"]
 a = Vector2(-8, 40)
-b = Vector2(-56, 80)
+b = Vector2(-48, 72)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_h4iuc"]
 a = Vector2(24, 0)
-b = Vector2(56, -32)
+b = Vector2(48, -24)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_fd4e3"]
 a = Vector2(-24, 0)
-b = Vector2(-56, -32)
+b = Vector2(-48, -24)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cvnsp")

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://deschlkxjw84f"
-path="res://.godot/imported/Carved_3Slides.png-37cf42999e8dc44e51630ea43bc9b0b2.ctex"
+path="res://.godot/imported/Carved_3Slides.png-037547c143bf0f2cdb07356b7d7e5a7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiny Swords/Tiny Swords (Update 010)/UI/Banners/Carved_3Slides.png"
-dest_files=["res://.godot/imported/Carved_3Slides.png-37cf42999e8dc44e51630ea43bc9b0b2.ctex"]
+source_file="res://Assets/UI/Banners/Carved_3Slides.png"
+dest_files=["res://.godot/imported/Carved_3Slides.png-037547c143bf0f2cdb07356b7d7e5a7a.ctex"]
 
 [params]
 

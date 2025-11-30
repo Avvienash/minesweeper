@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkba3327cc3nj"
-path="res://.godot/imported/Ribbon_Red_Connection_Right.png-c17af7b966c4f8ddee01ddaa4ae02ce5.ctex"
+path="res://.godot/imported/Ribbon_Red_Connection_Right.png-70763ca9709265a00e52873320d8adbe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiny Swords/Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Red_Connection_Right.png"
-dest_files=["res://.godot/imported/Ribbon_Red_Connection_Right.png-c17af7b966c4f8ddee01ddaa4ae02ce5.ctex"]
+source_file="res://Assets/UI/Ribbons/Ribbon_Red_Connection_Right.png"
+dest_files=["res://.godot/imported/Ribbon_Red_Connection_Right.png-70763ca9709265a00e52873320d8adbe.ctex"]
 
 [params]
 

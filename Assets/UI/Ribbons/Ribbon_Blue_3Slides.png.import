@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bos2o78tn77yn"
-path="res://.godot/imported/Ribbon_Blue_3Slides.png-cfe4a6585e68c621aa0fe0a30f083c3d.ctex"
+path="res://.godot/imported/Ribbon_Blue_3Slides.png-06308cc9fb51010b105d8ebd95ee9433.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiny Swords/Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Blue_3Slides.png"
-dest_files=["res://.godot/imported/Ribbon_Blue_3Slides.png-cfe4a6585e68c621aa0fe0a30f083c3d.ctex"]
+source_file="res://Assets/UI/Ribbons/Ribbon_Blue_3Slides.png"
+dest_files=["res://.godot/imported/Ribbon_Blue_3Slides.png-06308cc9fb51010b105d8ebd95ee9433.ctex"]
 
 [params]
 
