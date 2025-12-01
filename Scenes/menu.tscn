@@ -65,7 +65,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0.3372549, 0.24705882, 1)
 theme_override_fonts/font = ExtResource("4_wwsa2")
 theme_override_font_sizes/font_size = 51
-text = "MINESWEEPER"
+text = "QUICK SWEEP"
 horizontal_alignment = 1
 vertical_alignment = 1
 
